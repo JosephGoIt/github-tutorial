@@ -22,7 +22,29 @@
     <div>
         <button class="btn">Dark</button>
     </div>
+    <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu" id="toggleButton">
+        <svg class="menu-icon" width="24" height="24">
+                <use id="menuIcon" xlink:href="/icons.svg#gg_menu-left-icon"></use>
+        </svg>  
+    </button>
     <script src="app.js"></script>
+    <script>
+        // Function to toggle the SVG href
+        function toggleSvgHref() {
+            // Get the <use> element
+            var useElement = document.getElementById('menuIcon');
+    
+            // Check the current href and toggle it
+            if (useElement.getAttributeNS('http://www.w3.org/1999/xlink', 'href') === '/icons.svg#gg_menu-left-icon') {
+                useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '/icons.svg#another-icon'); // Change to another icon
+            } else {
+                useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '/icons.svg#gg_menu-left-icon'); // Change back to the original icon
+            }
+        }
+    
+        // Add click event listener to the button
+        document.getElementById('toggleButton').addEventListener('click', toggleSvgHref);
+    </script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>
 </body>
 </html>
